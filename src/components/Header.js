@@ -6,7 +6,7 @@ const Header = ({title}) => {
     console.log("Click")
   }
   return (
-    <header class="header">
+    <header className="header">
         <h1>
             {title}
         </h1>
