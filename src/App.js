@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+import Tasks from './components/Tasks'
+import { useState } from 'react'
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([
+    {   id: 1,
+        text: "Grocery Shopping",
+        day: "Saturdays @ 3:00pm",
+        reminder: true,
+    },
+    {   id:2,
+        text: "D&D",
+        day: "Mondays @ 6:00pm",
+        reminder: true,
+    },
+    {   id:3,
+        text: "Tennis Practice",
+        day: "Saturdays @ 8:00pm",
+        reminder: true,
+    },
+    ])
+
+    //Delete task
+    const deleteTask = (id) => {
+      console.log("delete", id)
+    }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'> 
+      <Header title="Task Tracker" />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }
-
+/*can only have one parent element after return (in this case just the div)*/
 export default App;
